@@ -86,7 +86,7 @@ body {
 }
 
 .body-text {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.85;
   color: var(--white-dim);
   font-weight: 300;

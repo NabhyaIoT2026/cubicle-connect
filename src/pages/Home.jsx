@@ -20,7 +20,7 @@ export default function Home() {
               Talent that <em>moves</em><br />companies forward.
             </h1>
             <p className="body-text anim-fadeUp d3">
-              Cubicle Connect is a specialist hiring firm dedicated to placing exceptional professionals in roles where they can make a lasting impact.
+              We are a specialized HR consulting firm in Mumbai providing expert recruitment, compliance, and development services. Our professionally qualified founders bring deep cross-industry insight to drive growth for both emerging startups and established enterprises.
             </p>
             <div className="home-hero__actions anim-fadeUp d4">
               <Link to="/job-board" className="btn btn-gold">View Open Roles</Link>

@@ -15,10 +15,10 @@ export default function About() {
         <div className="container">
           <span className="overline anim-fadeUp d1">About Us</span>
           <h1 className="display anim-fadeUp d2">
-            Built on <em>people</em>,<br />driven by purpose.
+            Expertise Across <em>Industries</em>,<br /> Driven by Excellence.
           </h1>
           <p className="body-text anim-fadeUp d3" style={{ marginTop: '1.5rem' }}>
-            Cubicle Connect was founded by young professionals who believed the hiring industry needed more honesty, more precision, and less noise. We combine the energy of a new firm with the rigour of seasoned professionals.
+            Based in the heart of Mumbai, we are an HR consulting firm established by professionally qualified founders dedicated to elevating organizational talent. We bring a wealth of diversified experience across various industries and functions to the table, ensuring our clients receive versatile and strategic human capital solutions.
           </p>
         </div>
       </section>
@@ -36,9 +36,6 @@ export default function About() {
             <div className="about-mission__text">
               <p className="body-text" style={{ maxWidth: '100%' }}>
                 We work with professionals at every career stage and with companies of every size. Our process is thorough, our standards are high, and our relationships are built to last.
-              </p>
-              <p className="body-text" style={{ maxWidth: '100%', marginTop: '1rem' }}>
-                Headquartered in Bengaluru, we partner with organisations across India and internationally — bringing together the right people, at the right time.
               </p>
             </div>
           </div>

@@ -28,15 +28,15 @@ export default function Footer() {
 
           <div className="footer__col">
             <h4>Contact</h4>
-            <span>Bengaluru, India</span>
-            <span>hello@cubicleconnect.in</span>
-            <span>+91 98000 00000</span>
+            <span>Mumbai, India</span>
+            <span>careers@cubicleconnect.com</span>
+            <span>+91 93728 24348</span>
           </div>
         </div>
 
         <hr className="rule" />
         <div className="footer__bottom">
-          <span>© 2025 Cubicle Connect. All rights reserved.</span>
+          <span>© 2026 Cubicle Connect. All rights reserved.</span>
           <span>Privacy Policy · Terms of Service</span>
         </div>
       </div>

@@ -8,7 +8,7 @@ const links = [
   { label: 'Job Seekers', to: '/job-seekers' },
   { label: 'Employers', to: '/employers' },
   { label: 'Job Board', to: '/job-board' },
-  { label: 'Careers', to: '/careers' },
+  { label: 'Join Us', to: '/careers' },
   { label: 'Contact', to: '/contact' },
 ];
 
