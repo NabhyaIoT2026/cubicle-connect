@@ -181,11 +181,10 @@ export default function JobBoard() {
               <div className="modal__content">
                 <div className="modal__header">
                   <h2>{selectedJob.Title}</h2>
-                  <p className="modal__company">{selectedJob.Company}</p>
                 </div>
 
                 <div className="modal__tags">
-                  {selectedJob.Location && <span className="modal__tag">📍 {selectedJob.Location}</span>}
+                  {selectedJob.Location && <span className="modal__tag"> {selectedJob.Location}</span>}
                   {selectedJob.Type && <span className="modal__tag">{selectedJob.Type}</span>}
                   {selectedJob.Experience && <span className="modal__tag">{selectedJob.Experience}</span>}
                   {selectedJob.Domain && <span className="modal__tag modal__tag--gold">{selectedJob.Domain}</span>}
@@ -239,9 +238,8 @@ export default function JobBoard() {
             {step === 'done' && (
               <div className="modal__content modal__content--center">
                 <div className="modal__success-icon">✓</div>
-                <h2>Redirecting You !!!</h2>
-                <p>Your application for <strong>{selectedJob.Title}</strong> at <strong>{selectedJob.Company}</strong> will be received after uploading resume.</p>
-                <p className="modal__redirect-note">Redirecting you to Job Seekers page — please upload your resume there.</p>
+                <h2>Redirecting you to Job Seekers page!!!</h2>
+                <p className="modal__redirect-note"> Please upload your resume there.</p>
               </div>
             )}
 

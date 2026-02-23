@@ -158,7 +158,7 @@ body {
 .body-text {
   font-size: 1.1rem;
   line-height: 1.85;
-  color: var(--white-dim);
+  color: var(--white);
   font-weight: 300;
   max-width: 520px;
 }
@@ -226,7 +226,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--white-dim);
+  color: var(--white);
 }
 
 .form-group input,
@@ -251,7 +251,7 @@ body {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(245, 243, 239, 0.2);
+  color: rgba(245, 243, 239, 0.5);
 }
 
 .form-group textarea {
