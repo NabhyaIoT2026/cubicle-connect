@@ -54,7 +54,7 @@ body {
 .display {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.2rem, 6vw, 5.5rem);
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
@@ -67,7 +67,7 @@ body {
 .headline {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
@@ -214,9 +214,81 @@ body {
 .d4 { animation-delay: 0.45s; }
 .d5 { animation-delay: 0.6s; }
 
-/* RESPONSIVE */
+/* ======================================================
+   RESPONSIVE — TABLET (max 768px)
+   ====================================================== */
 @media (max-width: 768px) {
-  .container { padding: 0 1.5rem; }
-  .section { padding: 5rem 0; }
-  .section-sm { padding: 3.5rem 0; }
+
+  /* Layout */
+  .page { padding-top: 64px; }
+  .container { padding: 0 1.25rem; }
+  .section { padding: 4rem 0; }
+  .section-sm { padding: 2.75rem 0; }
+
+  /* Typography */
+  .body-text {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .overline { margin-bottom: 1rem; }
+
+  /* Buttons — full width on mobile when stacked */
+  .btn-gold,
+  .btn-outline {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* Two-col grids → single col */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Common hero layout fix */
+  .hero-inner,
+  .split-layout {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Stat/card rows */
+  .stats-row,
+  .cards-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ======================================================
+   RESPONSIVE — MOBILE (max 480px)
+   ====================================================== */
+@media (max-width: 480px) {
+
+  .container { padding: 0 1rem; }
+  .section { padding: 3rem 0; }
+  .section-sm { padding: 2rem 0; }
+
+  /* Full width buttons on small screens */
+  .btn-gold,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+  }
+
+  /* Single col for everything */
+  .stats-row,
+  .cards-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form inputs bigger tap targets */
+  .form-group input,
+  .form-group textarea {
+    font-size: 1rem;
+    padding: 1rem 1.1rem;
+  }
 }

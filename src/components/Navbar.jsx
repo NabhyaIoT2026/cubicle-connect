@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../assets/logo.png';
 
 const links = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Services', to: '/services' },
   { label: 'Job Seekers', to: '/job-seekers' },
   { label: 'Employers', to: '/employers' },
   { label: 'Job Board', to: '/job-board' },
   { label: 'Join Us', to: '/careers' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Contact Us', to: '/contact' },
+  { label: 'Gallery', to: '/gallery' },
 ];
 
 export default function Navbar() {
@@ -29,7 +32,7 @@ export default function Navbar() {
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
-          <img src="../../assets/cubicle connect-01.jpg.jpeg" alt="Cubicle Connect" className="nav__logo-img" />
+          <img src={logo} alt="Cubicle Connect Logo" className="nav__logo-img" />
           Cubicle<span>Connect</span>
         </Link>
 
