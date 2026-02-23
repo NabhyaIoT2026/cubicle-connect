@@ -11,6 +11,7 @@ import JobBoard from './pages/JobBoard';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
+import { Analytics } from "@vercel/analytics/react";
 import './styles/global.css';
 
 function ScrollToTop() {
@@ -36,6 +37,7 @@ function AppInner() {
         <Route path="/services" element={<Services />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 }
