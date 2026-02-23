@@ -1,27 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../assets/logo.png';
+
+import logoIcon from '../assets/logo.png';
+import companyName from '../assets/name.png';
 
 const links = [
-  { label: 'Home',       to: '/' },
-  { label: 'About Us',   to: '/about' },
-  { label: 'Services',   to: '/services' },
-  { label: 'Job Seekers',to: '/job-seekers' },
-  { label: 'Employers',  to: '/employers' },
-  { label: 'Job Board',  to: '/job-board' },
-  { label: 'Join Us',    to: '/careers' },
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Job Seekers', to: '/job-seekers' },
+  { label: 'Employers', to: '/employers' },
+  { label: 'Job Board', to: '/job-board' },
+  { label: 'Join Us', to: '/careers' },
   { label: 'Contact Us', to: '/contact' },
-  { label: 'Gallery',    to: '/gallery' },
 ];
 
 export default function Navbar() {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen]         = useState(false);
-  const navRef                  = useRef(null);
+  const [open, setOpen] = useState(false);
+  const navRef = useRef(null);
 
-  // Scroll detection
+  // Detect scroll
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', fn);
@@ -29,7 +30,9 @@ export default function Navbar() {
   }, []);
 
   // Close on route change
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   // Close on outside click
   useEffect(() => {
@@ -42,27 +45,41 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', fn);
   }, [open]);
 
-  // Prevent body scroll when menu is open
+  // Prevent body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [open]);
 
   return (
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`} ref={navRef}>
       <div className="nav__inner">
 
+        {/* Logo Section */}
         <Link to="/" className="nav__logo">
-          <img src={logo} alt="Cubicle Connect Logo" className="nav__logo-img" />
-          Cubicle<span>Connect</span>
+          <img
+            src={logoIcon}
+            alt="Company Logo"
+            className="nav__logo-icon"
+          />
+          <img
+            src={companyName}
+            alt="Company Name"
+            className="nav__logo-text"
+          />
         </Link>
 
+        {/* Desktop Links */}
         <ul className={`nav__links ${open ? 'nav__links--open' : ''}`}>
-          {links.map(l => (
+          {links.map((l) => (
             <li key={l.to}>
               <Link
                 to={l.to}
-                className={`nav__link ${pathname === l.to ? 'nav__link--active' : ''}`}
+                className={`nav__link ${
+                  pathname === l.to ? 'nav__link--active' : ''
+                }`}
               >
                 {l.label}
               </Link>
@@ -70,13 +87,16 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Burger */}
         <button
           className={`nav__burger ${open ? 'nav__burger--open' : ''}`}
-          onClick={() => setOpen(o => !o)}
+          onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          <span /><span /><span />
+          <span />
+          <span />
+          <span />
         </button>
 
       </div>
