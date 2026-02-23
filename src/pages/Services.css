@@ -43,7 +43,7 @@
 
 .services-list__label span {
   display: block;
-  font-size: 0.68rem;
+  font-size: 1.0rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -153,7 +153,7 @@
 }
 
 .service-item__desc {
-  font-size: 0.87rem;
+  font-size: 1.0rem;
   color: var(--white-dim);
   line-height: 1.8;
   margin: 0;

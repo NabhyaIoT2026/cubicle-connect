@@ -18,7 +18,7 @@ export default function About() {
             Expertise Across <em>Industries</em>,<br /> Driven by Excellence.
           </h1>
           <p className="body-text anim-fadeUp d3" style={{ marginTop: '1.5rem' }}>
-            Based in the heart of Mumbai, we are an HR consulting firm established by professionally qualified founders dedicated to elevating organizational talent. We bring a wealth of diversified experience across various industries and functions to the table, ensuring our clients receive versatile and strategic human capital solutions.
+            Based in the heart of Mumbai, we are an Human Capital consulting firm established by professionally qualified founders dedicated to elevating organizational talent. We bring a wealth of diversified experience across various industries and functions to the table, ensuring our clients receive versatile and strategic human capital solutions.
           </p>
         </div>
       </section>

@@ -135,7 +135,6 @@ export default function JobBoard() {
                   >
                     <div className="jb-item__left">
                       <div className="jb-item__title">{job.Title}</div>
-                      <div className="jb-item__company">{job.Company}</div>
                     </div>
                     <button
                       className="btn btn-outline jb-item__apply"
