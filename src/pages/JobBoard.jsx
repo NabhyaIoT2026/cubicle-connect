@@ -135,6 +135,11 @@ export default function JobBoard() {
                   >
                     <div className="jb-item__left">
                       <div className="jb-item__title">{job.Title}</div>
+                      <div className="jb-item__meta">
+                        {job.Location && <span>{job.Location}</span>}
+                        {job.Type && <span>{job.Type}</span>}
+                        {job.Experience && <span>{job.Experience}</span>}
+                      </div>
                     </div>
                     <button
                       className="btn btn-outline jb-item__apply"
