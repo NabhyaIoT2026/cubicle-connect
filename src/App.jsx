@@ -9,6 +9,7 @@ import Employers from './pages/Employers';
 import JobBoard from './pages/JobBoard';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import Services from './pages/Services';
 import './styles/global.css';
 
 function ScrollToTop() {
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/job-board" element={<JobBoard />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
       <Footer />
     </BrowserRouter>
