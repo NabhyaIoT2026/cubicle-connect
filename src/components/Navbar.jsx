@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
@@ -22,19 +23,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const navRef = useRef(null);
 
-  // Detect scroll
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  // Close on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
 
-  // Close on outside click
   useEffect(() => {
     const fn = (e) => {
       if (open && navRef.current && !navRef.current.contains(e.target)) {
@@ -45,41 +41,26 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', fn);
   }, [open]);
 
-  // Prevent body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  return (
+  const navbar = (
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`} ref={navRef}>
       <div className="nav__inner">
 
-        {/* Logo Section */}
         <Link to="/" className="nav__logo">
-          <img
-            src={logoIcon}
-            alt="Company Logo"
-            className="nav__logo-icon"
-          />
-          <img
-            src={companyName}
-            alt="Company Name"
-            className="nav__logo-text"
-          />
+          <img src={logoIcon} alt="Company Logo" className="nav__logo-icon" />
+          <img src={companyName} alt="Company Name" className="nav__logo-text" />
         </Link>
 
-        {/* Desktop Links */}
         <ul className={`nav__links ${open ? 'nav__links--open' : ''}`}>
           {links.map((l) => (
             <li key={l.to}>
               <Link
                 to={l.to}
-                className={`nav__link ${
-                  pathname === l.to ? 'nav__link--active' : ''
-                }`}
+                className={`nav__link ${pathname === l.to ? 'nav__link--active' : ''}`}
               >
                 {l.label}
               </Link>
@@ -87,7 +68,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Burger */}
         <button
           className={`nav__burger ${open ? 'nav__burger--open' : ''}`}
           onClick={() => setOpen((o) => !o)}
@@ -102,4 +82,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
+
+  return createPortal(navbar, document.getElementById('navbar-root'));
 }

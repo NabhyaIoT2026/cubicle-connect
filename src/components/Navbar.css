@@ -33,13 +33,13 @@
 }
 
 .nav__logo-icon {
-  height: 42px;
+  height: 58px;
   width: auto;
   object-fit: contain;
 }
 
 .nav__logo-text {
-  height: 28px;
+  height: 40px;
   width: auto;
   object-fit: contain;
 }
@@ -160,10 +160,10 @@
   }
 
   .nav__logo-icon {
-    height: 34px;
+    height: 46px;
   }
 
   .nav__logo-text {
-    height: 22px;
+    height: 34px;
   }
 }
