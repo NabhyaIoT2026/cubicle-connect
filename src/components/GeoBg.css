@@ -1,0 +1,45 @@
+.geo-page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.geo-page-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.geo-page-bg ~ * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes geoBgSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes geoBgFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes geoBracketDraw {
+  from { stroke-dashoffset: 80; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.geo-spin       { animation: geoBgSpin 60s linear infinite; }
+.geo-spin-rev   { animation: geoBgSpin 45s linear infinite reverse; }
+.geo-float      { animation: geoBgFloat 8s ease-in-out infinite; }
+.geo-float-slow { animation: geoBgFloat 13s ease-in-out infinite; }
+
+.geo-bracket-draw {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: geoBracketDraw 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}

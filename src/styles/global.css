@@ -37,6 +37,76 @@ body {
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--dark3); border-radius: 4px; }
 
+/* ======================================================
+   GLOBAL GEOMETRIC BACKGROUND
+   ====================================================== */
+
+/* The SVG bg sits fixed behind everything */
+.geo-page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.geo-page-bg svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* All page content must sit above the background */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slow spin for outline shapes */
+@keyframes geoBgSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Gentle float up/down */
+@keyframes geoBgFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* Dot pulse */
+@keyframes geoBgPulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 0.7; }
+}
+
+.geo-spin {
+  animation: geoBgSpin 60s linear infinite;
+}
+.geo-spin-rev {
+  animation: geoBgSpin 45s linear infinite reverse;
+}
+.geo-float {
+  animation: geoBgFloat 8s ease-in-out infinite;
+}
+.geo-float-slow {
+  animation: geoBgFloat 13s ease-in-out infinite;
+}
+.geo-pulse {
+  animation: geoBgPulse 4s ease-in-out infinite;
+}
+
+/* Bracket draw-in on page load */
+@keyframes geoBracketDraw {
+  from { stroke-dashoffset: 80; }
+  to   { stroke-dashoffset: 0; }
+}
+.geo-bracket-draw {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: geoBracketDraw 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+
 /* PAGE */
 .page { padding-top: 80px; min-height: 100vh; }
 
@@ -219,13 +289,11 @@ body {
    ====================================================== */
 @media (max-width: 768px) {
 
-  /* Layout */
   .page { padding-top: 64px; }
   .container { padding: 0 1.25rem; }
   .section { padding: 4rem 0; }
   .section-sm { padding: 2.75rem 0; }
 
-  /* Typography */
   .body-text {
     font-size: 1rem;
     max-width: 100%;
@@ -233,28 +301,24 @@ body {
 
   .overline { margin-bottom: 1rem; }
 
-  /* Buttons — full width on mobile when stacked */
   .btn-gold,
   .btn-outline {
     padding: 0.85rem 1.75rem;
     font-size: 0.75rem;
   }
 
-  /* Two-col grids → single col */
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr !important;
   }
 
-  /* Common hero layout fix */
   .hero-inner,
   .split-layout {
     flex-direction: column !important;
     gap: 2.5rem !important;
   }
 
-  /* Stat/card rows */
   .stats-row,
   .cards-row {
     grid-template-columns: 1fr 1fr !important;
@@ -271,7 +335,6 @@ body {
   .section { padding: 3rem 0; }
   .section-sm { padding: 2rem 0; }
 
-  /* Full width buttons on small screens */
   .btn-gold,
   .btn-outline {
     width: 100%;
@@ -279,13 +342,11 @@ body {
     padding: 0.85rem 1rem;
   }
 
-  /* Single col for everything */
   .stats-row,
   .cards-row {
     grid-template-columns: 1fr !important;
   }
 
-  /* Form inputs bigger tap targets */
   .form-group input,
   .form-group textarea {
     font-size: 1rem;

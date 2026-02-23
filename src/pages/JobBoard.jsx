@@ -241,7 +241,7 @@ export default function JobBoard() {
               <div className="modal__content modal__content--center">
                 <div className="modal__success-icon">✓</div>
                 <h2>Redirecting You !!!</h2>
-                <p>Your application for <strong>{selectedJob.Title}</strong> at <strong>{selectedJob.Company}</strong> will be received.</p>
+                <p>Your application for <strong>{selectedJob.Title}</strong> at <strong>{selectedJob.Company}</strong> will be received after uploading resume.</p>
                 <p className="modal__redirect-note">Redirecting you to Job Seekers page — please upload your resume there.</p>
               </div>
             )}

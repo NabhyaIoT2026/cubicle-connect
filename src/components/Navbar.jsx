@@ -1,36 +1,57 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.png';
 
 const links = [
-  { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about' },
-  { label: 'Services', to: '/services' },
-  { label: 'Job Seekers', to: '/job-seekers' },
-  { label: 'Employers', to: '/employers' },
-  { label: 'Job Board', to: '/job-board' },
-  { label: 'Join Us', to: '/careers' },
+  { label: 'Home',       to: '/' },
+  { label: 'About Us',   to: '/about' },
+  { label: 'Services',   to: '/services' },
+  { label: 'Job Seekers',to: '/job-seekers' },
+  { label: 'Employers',  to: '/employers' },
+  { label: 'Job Board',  to: '/job-board' },
+  { label: 'Join Us',    to: '/careers' },
   { label: 'Contact Us', to: '/contact' },
-  { label: 'Gallery', to: '/gallery' },
+  { label: 'Gallery',    to: '/gallery' },
 ];
 
 export default function Navbar() {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen]         = useState(false);
+  const navRef                  = useRef(null);
 
+  // Scroll detection
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  // Close on route change
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  // Close on outside click
+  useEffect(() => {
+    const fn = (e) => {
+      if (open && navRef.current && !navRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', fn);
+    return () => document.removeEventListener('mousedown', fn);
+  }, [open]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
   return (
-    <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+    <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`} ref={navRef}>
       <div className="nav__inner">
+
         <Link to="/" className="nav__logo">
           <img src={logo} alt="Cubicle Connect Logo" className="nav__logo-img" />
           Cubicle<span>Connect</span>
@@ -51,11 +72,13 @@ export default function Navbar() {
 
         <button
           className={`nav__burger ${open ? 'nav__burger--open' : ''}`}
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen(o => !o)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <span /><span /><span />
         </button>
+
       </div>
     </nav>
   );

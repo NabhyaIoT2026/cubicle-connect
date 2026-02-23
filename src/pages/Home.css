@@ -5,6 +5,7 @@
   align-items: center;
   position: relative;
   padding: 8rem 0 6rem;
+  overflow: hidden;
   background:
     linear-gradient(160deg, rgba(201,169,110,0.04) 0%, transparent 50%),
     radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,169,110,0.05) 0%, transparent 70%);
@@ -15,6 +16,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+  position: relative;
+  z-index: 1;
 }
 
 .home-hero__actions {
@@ -32,46 +35,62 @@
   transform: translateY(-50%);
 }
 
-/* NUMBERS */
-.home-numbers {
-  padding: 4rem 0;
-  background: var(--dark);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+/* ── ABSTRACT GEO BACKGROUND ── */
+.home-hero__geo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.home-numbers__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+.geo-svg {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 65%;
+  max-width: 820px;
+  height: auto;
 }
 
-.home-number {
-  text-align: center;
-  padding: 1rem;
-  border-right: 1px solid var(--border);
+/* Concentric circles slow rotate */
+.geo-circle {
+  transform-origin: 680px 320px;
+  animation: geoRotate 40s linear infinite;
+}
+.geo-c2 { animation-duration: 60s; animation-direction: reverse; }
+.geo-c3 { animation-duration: 28s; }
+
+@keyframes geoRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-.home-number:last-child { border-right: none; }
+/* Bracket draw-in on load */
+.geo-bracket {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: geoDraw 1.6s ease forwards;
+}
+.geo-br1 { animation-delay: 0.6s; }
+.geo-br2 { animation-delay: 0.9s; }
 
-.home-number__value {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 2.8rem;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 0.5rem;
+@keyframes geoDraw {
+  to { stroke-dashoffset: 0; }
 }
 
-.home-number__label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--white-dim);
+/* Dot grid pulse */
+.geo-dot {
+  animation: geoPulse 3s ease-in-out infinite;
+}
+@keyframes geoPulse {
+  0%, 100% { opacity: 0.18; }
+  50%       { opacity: 0.55; }
 }
 
-/* PILLARS */
+
+
+/* ── PILLARS ── */
 .home-pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -84,11 +103,51 @@
   padding: 2.5rem;
   border-right: 1px solid var(--border);
   transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.home-pillar:last-child { border-right: none; }
+.home-pillar:hover { background: var(--white-faint); }
+
+/* Gold corner accent on hover */
+.home-pillar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+.home-pillar:hover::after { width: 100%; }
+
+/* SVG icon */
+.home-pillar__icon {
+  margin-bottom: 1.2rem;
+  color: var(--gold);
 }
 
-.home-pillar:last-child { border-right: none; }
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
 
-.home-pillar:hover { background: var(--white-faint); }
+/* SVG stroke draw animation */
+.ico-draw {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.home-pillar:hover .ico-draw {
+  animation: iconDraw 0.7s ease forwards;
+}
+.home-pillar:hover .ico-d2 { animation-delay: 0.12s; }
+.home-pillar:hover .ico-d3 { animation-delay: 0.24s; }
+.home-pillar:hover .ico-d4 { animation-delay: 0.36s; }
+
+@keyframes iconDraw {
+  to { stroke-dashoffset: 0; }
+}
 
 .home-pillar__num {
   font-family: var(--font-display);
@@ -115,7 +174,7 @@
   line-height: 1.7;
 }
 
-/* CTA */
+/* ── CTA ── */
 .home-cta {
   display: flex;
   align-items: center;
@@ -131,11 +190,9 @@
   flex-shrink: 0;
 }
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  .home-numbers__grid { grid-template-columns: repeat(2, 1fr); }
-  .home-number:nth-child(2) { border-right: none; }
-  .home-number:nth-child(3), .home-number:nth-child(4) { border-top: 1px solid var(--border); }
+  .geo-svg { width: 100%; right: -20px; opacity: 0.5; }
   .home-pillars { grid-template-columns: 1fr; }
   .home-pillar { border-right: none; border-bottom: 1px solid var(--border); }
   .home-pillar:last-child { border-bottom: none; }
@@ -143,6 +200,6 @@
 }
 
 @media (max-width: 480px) {
-  .home-numbers__grid { grid-template-columns: 1fr; }
   .home-number { border-right: none; border-bottom: 1px solid var(--border); }
+  .home-number:last-child { border-bottom: none; }
 }
