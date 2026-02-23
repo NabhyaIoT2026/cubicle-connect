@@ -1,14 +1,6 @@
 import FormPage from '../components/FormPage';
 
-const FORM_ACTION = 'https://docs.google.com/forms/d/e/1E-MhaL8pjZlk6rvbP-vmLeMlJlxV2TGcTkBJ50U813k/formResponse';
-
-const FIELD_MAP = {
-  name:      'entry.XXXXXXXXX',
-  email:     'entry.XXXXXXXXX',
-  phone:     'entry.XXXXXXXXX',
-  location:  'entry.XXXXXXXXX',
-  resumeUrl: 'entry.XXXXXXXXX',
-};
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4BhQJ4AinK5wSw-ljWVgAP9N-WUG9XEbkPgd8nxSd_PMuxzD9GR7S0WMPfJ1z8863/exec';
 
 export default function JobSeekers() {
   return (
@@ -17,8 +9,9 @@ export default function JobSeekers() {
       title={<>Your next role<br />starts <em>here.</em></>}
       subtitle="Share your details and we'll match you with opportunities that align with your skills, ambitions, and career trajectory."
       label="Submit Your Profile"
-      formAction={FORM_ACTION}
-      fieldMap={FIELD_MAP}
+      sheetUrl={SCRIPT_URL}
+      sheetName="Job Seekers"
+      hideResume={false}
     />
   );
 }

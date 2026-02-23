@@ -29,6 +29,7 @@ export default function Navbar() {
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
+          <img src="../../assets/cubicle connect-01.jpg.jpeg" alt="Cubicle Connect" className="nav__logo-img" />
           Cubicle<span>Connect</span>
         </Link>
 
