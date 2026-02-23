@@ -4,7 +4,7 @@ import './Home.css';
 const pillars = [
   { label: 'Executive Hiring', desc: 'Placing senior professionals across finance, technology, and operations.' },
   { label: 'Mid-Level Talent', desc: 'Connecting skilled specialists with companies ready to scale.' },
-  { label: 'Cross-Industry', desc: 'From startups to enterprise — we work across every sector.' },
+  { label: 'Cross-Industry', desc: 'From Startups to Enterprises - providing tailored & scalable solutions to all.' },
 ];
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
               Talent that <em>moves</em><br />companies forward.
             </h1>
             <p className="body-text anim-fadeUp d3">
-              We are a specialized HR consulting firm in Mumbai providing expert recruitment, compliance, and development services. Our professionally qualified founders bring deep cross-industry insight to drive growth for both emerging startups and established enterprises.
+              We are a specialized Human Capital consulting firm in Mumbai providing expert recruitment, compliance, and training & development services. Our professionally qualified founders bring deep cross-industry insight to drive growth for both emerging startups and established enterprises.
             </p>
             <div className="home-hero__actions anim-fadeUp d4">
               <Link to="/job-board" className="btn btn-gold">View Open Roles</Link>
@@ -58,7 +58,7 @@ export default function Home() {
       <section className="section-sm">
         <div className="container">
           <div className="home-cta">
-            <h2 className="headline"><em>Ready</em> to find your next role?</h2>
+            <h2 className="headline"><em>Ready… Set… Go</em></h2>
             <div className="home-cta__actions">
               <Link to="/job-seekers" className="btn btn-gold">I'm Looking for Work</Link>
               <Link to="/employers" className="btn btn-outline">I'm Looking to Hire</Link>
