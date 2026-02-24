@@ -6,11 +6,14 @@
   z-index: 1;
 }
 
+/* ===== LAYOUT ===== */
+
 .footer__inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3.5rem;
+  align-items: start; /* ensures all columns start at top */
 }
 
 /* ===== BRAND ===== */
@@ -19,24 +22,27 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  align-items: flex-start; 
 }
 
 .footer__logo {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .footer__logo-icon {
   height: 42px;
   width: auto;
   object-fit: contain;
+  align-self: center;   
 }
 
 .footer__logo-text {
   height: 32px;
   width: auto;
   object-fit: contain;
+  align-self: flex-start; 
 }
 
 .footer__brand p {
