@@ -11,7 +11,6 @@ export default function Footer() {
 
           <div className="footer__brand">
             <div className="footer__logo">
-              <img src={logoIcon} alt="Company Logo" className="footer__logo-icon" />
               <img src={companyName} alt="Company Name" className="footer__logo-text" />
             </div>
             <p>Connecting exceptional professionals with companies that value talent.</p>
