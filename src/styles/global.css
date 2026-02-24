@@ -333,6 +333,38 @@ body {
   }
 }
 
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #111;
+  padding: 2rem;
+  width: 420px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.popup-box h2 {
+  margin-bottom: 1rem;
+}
+
+.popup-box button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 /* ======================================================
    RESPONSIVE — MOBILE (max 480px)
    ====================================================== */
