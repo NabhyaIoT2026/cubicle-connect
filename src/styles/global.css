@@ -332,11 +332,11 @@ body {
     gap: 1rem !important;
   }
 }
-
 .popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -344,16 +344,24 @@ body {
 }
 
 .popup-box {
-  background: #111;
+  background: linear-gradient(160deg, #3a3a3a 0%, #242424 40%, #1c1c1c 100%);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(255, 255, 255, 0.03);
   padding: 2rem;
   width: 420px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
-  color: white;
+  color: #f0f0f0;
 }
 
 .popup-box h2 {
   margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.popup-box p, .popup-box span {
+  color: #a0a0a0;
 }
 
 .popup-box button {
@@ -363,6 +371,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
+  border-radius: 6px;
 }
 
 /* ======================================================
